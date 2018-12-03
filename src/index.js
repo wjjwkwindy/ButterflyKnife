@@ -5,14 +5,15 @@ import { getMonthDays, getSeparatorDate } from "./date/";
 import { setArraySessionStorage, getArraySessionStorage } from "./storage/";
 
 // Butterfly-Knife: url tools
-import { addUrlParam } from "./url/";
+import { addUrlParam, initialRequest } from "./url/";
 
 export {
   getMonthDays,
   getSeparatorDate,
   setArraySessionStorage,
   getArraySessionStorage,
-  addUrlParam
+  addUrlParam,
+  initialRequest
 };
 
 // include all function to BFN
@@ -23,7 +24,8 @@ export {
     getSeparatorDate,
     setArraySessionStorage,
     getArraySessionStorage,
-    addUrlParam
+    addUrlParam,
+    initialRequest
   };
   if (typeof window == "undefine") {
     return;

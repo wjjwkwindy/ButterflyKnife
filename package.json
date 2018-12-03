@@ -1,12 +1,13 @@
 {
   "name": "butterfly-knife",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Gather of Javascript common functions.",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel src -d lib",
-    "build": "webpack"
+    "dev": "webpack",
+    "build": "babel src -d lib & webpack"
   },
   "author": "wjjwkwindy",
   "keywords": [
