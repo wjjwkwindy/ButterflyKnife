@@ -15,4 +15,32 @@ function addUrlParam(url, name, value) {
   return url;
 }
 
-export { addUrlParam };
+/**
+ * 初始化Ajax请求
+ *
+ * @param {*} url 请求的网址
+ * @returns {Promise}
+ */
+function initialRequest(url) {
+  return new Promise((resolve, reject) => {
+    let client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler;
+    client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
+
+    function handler() {
+      if (this.readyState !== 4) {
+        return;
+      }
+      if (this.status === 200) {
+        resolve(this.response);
+      } else {
+        reject(new Error(this.statusText));
+      }
+    }
+  });
+}
+
+export { addUrlParam, initialRequest };
